@@ -4,98 +4,60 @@
 </header>
 
 <main class="md:flex min-h-screen">
+  <!-- Display Entire list of categories and tags -->
   <div class="md:w-4/5">
-    <section class="px-4 py-8">
-      <h2 class="text-2xl font-bold mb-4">Projects</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <li
-          *ngFor="let project of projects"
-          class="bg-gray-100 rounded-lg shadow-md p-4"
-        >
-          <h3 class="text-lg font-bold mb-2">{{ project.title }}</h3>
-          <p class="text-gray-700">{{ project.excerpt }}</p>
-          <!-- categories -->
-          <div class="mt-4">
-            <ng-container *ngIf="project.category">
-              <span class="text-gray-800 mr-1 text-sm">Category:</span>
-              <span
-                (click)="setCategoryFilter(project.category)"
-                class="cursor-pointer inline-block bg-gray-200 rounded-md text-gray-800 px-2 py-1 text-sm font-medium mr-2 mb-2"
-                >{{ project.category.name }}</span
-              >
-            </ng-container>
-          </div>
-          <!-- tags -->
-          <div class="mt-2">
-            <ng-container *ngIf="project.tags">
-              <ng-container *ngIf="project.tags.length > 0">
-                <span class="text-gray-800 mr-1 text-sm">Tags:</span>
-              </ng-container>
-              <span
-                *ngFor="let tag of project.tags"
-                (click)="setTagFilter(tag)"
-                class="cursor-pointer inline-block bg-gray-200 rounded-md text-gray-800 px-2 py-1 text-sm font-medium mr-2 mb-2"
-              >
-                {{ tag.name }}
-              </span>
-            </ng-container>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <app-projects
+      [categoryFilter]="categoryFilter"
+      (newCategoryFilterEvent)="setCategoryFilter($event)"
+      [tagFilter]="tagFilter"
+      (newTagFilterEvent)="setTagFilter($event)"
+    ></app-projects>
   </div>
 
-  <!-- Display Entire list of categories and tags -->
+  <!-- Sid Bar -->
   <div class="md:w-1/5">
-    <!-- clear function -->
+    <!-- clear function / trash bin-->
     <section class="px-4 py-5">
-      <button
-        (click)="clearFilters()"
-        class="rounded-lg bg-red-100 text-gray-800 px-3 py-2 flex items-center"
-      >
-        <span class="material-symbols-outlined text-4xl text-red-500">
-          delete
-        </span>
-        <span *ngIf="currentFilter" class="ml-2 font-bold text-red-500">{{
-          currentFilter.name
-        }}</span>
-      </button>
+      <article *ngIf="categoryFilter || tagFilter">
+        <button
+          (click)="clearFilters()"
+          class="rounded-l text-gray-800 px-3 py-2 flex items-center"
+        >
+          <span class="material-symbols-outlined text-4xl text-red-500">
+            delete
+          </span>
+        </button>
+
+        <!-- Filter names -->
+        <section>
+          <div *ngIf="categoryFilter" class="ml-2 font-bold text-red-500">
+            Category:
+            {{ categoryFilter.name }}
+          </div>
+          <div *ngIf="tagFilter" class="ml-2 font-bold text-red-500">
+            Tag:
+            {{ tagFilter.name }}
+          </div>
+        </section>
+      </article>
     </section>
 
     <!-- categories -->
     <section class="p-4">
       <h2 class="text-base font-bold mb-4">Categories</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <li
-          *ngFor="let category of categories"
-          class="bg-gray-100 rounded-lg shadow-md p-4"
-        >
-          <h3
-            class="text-base font-bold mb-2 cursor-pointer"
-            (click)="setCategoryFilter(category)"
-          >
-            {{ category.name }}
-          </h3>
-        </li>
-      </ul>
+      <app-categories
+        [categoryFilter]="categoryFilter"
+        (newCategoryFilterEvent)="setCategoryFilter($event)"
+      ></app-categories>
     </section>
 
     <!-- tags -->
     <section class="p-4">
       <h2 class="text-base font-bold mb-4">Tags</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <li
-          *ngFor="let tag of tags"
-          class="bg-gray-100 rounded-lg shadow-md p-4"
-        >
-          <h3
-            class="text-base font-bold mb-2 cursor-pointer"
-            (click)="setTagFilter(tag)"
-          >
-            {{ tag.name }}
-          </h3>
-        </li>
-      </ul>
+      <app-tags
+        [tagFilter]="tagFilter"
+        (newTagFilterEvent)="setTagFilter($event)"
+      ></app-tags>
     </section>
   </div>
 </main>
