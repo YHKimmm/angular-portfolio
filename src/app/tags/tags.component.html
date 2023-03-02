@@ -1,0 +1,10 @@
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <li *ngFor="let tag of tags" class="bg-gray-100 rounded-lg shadow-md p-4">
+    <h3
+      class="text-base font-bold mb-2 cursor-pointer"
+      (click)="setTagFilter(tag)"
+    >
+      {{ tag.name }}
+    </h3>
+  </li>
+</ul>
