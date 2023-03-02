@@ -23,8 +23,17 @@ export class ProjectsComponent {
 
   @Input() categoryFilter: Category | undefined;
   @Input() tagFilter: Tag | undefined;
+  @Input() selectedProject: Project | undefined;
   @Output() newCategoryFilterEvent = new EventEmitter<Category>();
   @Output() newTagFilterEvent = new EventEmitter<Tag>();
+
+  onSelect(project: Project): void {
+    this.selectedProject = project;
+  }
+
+  clearSelectedProject(): void {
+    this.selectedProject = undefined;
+  }
 
   setCategoryFilter(category: Category) {
     this.categoryFilter = category;

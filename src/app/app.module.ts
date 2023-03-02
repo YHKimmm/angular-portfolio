@@ -6,6 +6,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { TagsComponent } from './tags/tags.component';
 import { ProjectFilterPipe } from './project-filter.pipe';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProjectFilterPipe } from './project-filter.pipe';
     CategoriesComponent,
     ProjectFilterPipe,
     TagsComponent,
+    ProjectDetailComponent,
   ],
   imports: [BrowserModule],
   providers: [],
