@@ -1,54 +1,57 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../project.service';
 import { Project } from '../model/project';
 import { Category } from '../model/category';
 import { Tag } from '../model/tag';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent {
-  constructor(private projectService: ProjectService) {}
+export class ProjectsComponent implements OnInit {
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
   projects: Project[] = [];
   getProjects(): void {
-    this.projects = this.projectService.getProjects();
+    this.projectService
+      .getProjects()
+      .subscribe((projects) => (this.projects = projects));
+  }
+  getProjectsByCategory(): void {
+    const slug = String(this.route.snapshot.paramMap.get('slug'));
+    this.projectService
+      .getProjectsByCategory(slug)
+      .subscribe((projects) => (this.projects = projects));
+    console.log(this.projects);
   }
 
+  getProjectsByTag(): void {
+    const slug = String(this.route.snapshot.paramMap.get('slug'));
+    this.projectService
+      .getProjectsByTag(slug)
+      .subscribe((projects) => (this.projects = projects));
+    console.log(this.projectService);
+  }
+  goBack(): void {
+    this.location.back();
+  }
   ngOnInit(): void {
-    this.getProjects();
-  }
-
-  @Input() categoryFilter: Category | undefined;
-  @Input() tagFilter: Tag | undefined;
-  @Input() selectedProject: Project | undefined;
-  @Output() newCategoryFilterEvent = new EventEmitter<Category>();
-  @Output() newTagFilterEvent = new EventEmitter<Tag>();
-
-  onSelect(project: Project): void {
-    this.selectedProject = project;
-  }
-
-  clearSelectedProject(): void {
-    this.selectedProject = undefined;
-  }
-
-  setCategoryFilter(category: Category) {
-    this.categoryFilter = category;
-    this.newCategoryFilterEvent.emit(category);
-    console.log(this.categoryFilter);
-  }
-
-  setTagFilter(tag: Tag) {
-    this.tagFilter = tag;
-    this.newTagFilterEvent.emit(tag);
-    console.log(this.tagFilter);
-  }
-
-  clearFilters() {
-    this.categoryFilter = undefined;
-    this.tagFilter = undefined;
+    this.route.params.subscribe((params) => {
+      const segment: string = this.route.snapshot.url[1]?.path;
+      if (segment === 'categories') {
+        this.getProjectsByCategory();
+      } else if (segment === 'tags') {
+        this.getProjectsByTag();
+      } else {
+        this.getProjects();
+      }
+    });
   }
 }

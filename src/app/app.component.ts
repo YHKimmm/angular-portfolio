@@ -22,7 +22,7 @@ export class AppComponent {
 
   date: Date = new TimeOfDate().date;
   author = 'Brayden';
-  title = 'Portfolio-Brayden';
+  title = 'Portfolio';
 
   categoryFilter: Category | undefined;
   setCategoryFilter(category: Category) {
@@ -33,10 +33,5 @@ export class AppComponent {
 
   setTagFilter(tag: Tag) {
     this.tagFilter = tag;
-  }
-
-  clearFilters() {
-    this.categoryFilter = undefined;
-    this.tagFilter = undefined;
   }
 }

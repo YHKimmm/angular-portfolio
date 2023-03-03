@@ -6,6 +6,8 @@
     <h3
       class="text-base font-bold mb-2 cursor-pointer"
       (click)="setCategoryFilter(category)"
+      routerLink="/projects/categories/{{ category.slug }}"
+      routerLinkActive="text-blue-500"
     >
       {{ category.name }}
     </h3>

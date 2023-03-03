@@ -11,6 +11,8 @@ export class CategoriesComponent {
   constructor(private categoryService: CategoryService) {}
 
   categories: Category[] = [];
+  categoryFilterId: number | undefined;
+
   getCategories(): void {
     this.categories = this.categoryService.getCategories();
   }
@@ -25,9 +27,5 @@ export class CategoriesComponent {
   setCategoryFilter(category: Category) {
     this.categoryFilter = category;
     this.newCategoryFilterEvent.emit(category);
-  }
-
-  clearFilters() {
-    this.categoryFilter = undefined;
   }
 }
