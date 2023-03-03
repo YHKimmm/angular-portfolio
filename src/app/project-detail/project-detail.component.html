@@ -1,17 +1,75 @@
-<article *ngIf="project">
-  <section>
-    <h2>{{ project.title | uppercase }}</h2>
-    <div>{{ project.body }}</div>
-  </section>
-  <footer>
-    <div *ngIf="project.category">
-      Category: <span>{{ project.category.name }}</span>
+<div class="p-4 m-auto max-w-5xl">
+  <article *ngIf="project" class="bg-gray-100 rounded-lg shadow-md p-4">
+    <!-- go back -->
+    <header class="mb-3">
+      <button type="button" class="flex cursor-pointer" (click)="goBack()">
+        <span class="material-symbols-outlined"> arrow_back </span>
+      </button>
+    </header>
+    <!-- title -->
+    <h3 class="text-lg font-bold mb-2">{{ project.title | uppercase }}</h3>
+
+    <!-- image -->
+    <div class="mb-2">
+      <ng-container *ngIf="project.image">
+        <img
+          class="rounded-md"
+          [src]="'assets/' + project.image"
+          [alt]="project.title"
+          width="100%"
+        />
+      </ng-container>
+
+      <ng-container *ngIf="!project.image">
+        <img
+          class="rounded-md max-h-[600px] w-[70%]"
+          [src]="'assets/images/No-Image-Placeholder.png'"
+          [alt]="project.title"
+        />
+      </ng-container>
     </div>
-    <div *ngIf="project.tags?.length">
-      Tags:
-      <span *ngFor="let tag of project.tags">
-        {{ tag.name }}
-      </span>
+
+    <!-- body -->
+    <div class="text-gray-700" [innerHTML]="project.body"></div>
+
+    <!-- url -->
+    <div class="mt-4">
+      <ng-container *ngIf="project.url">
+        <span class="text-gray-800 mr-1 text-sm">URL:</span>
+        <a
+          class="text-blue-500 hover:text-blue-600"
+          [href]="project.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ project.title }}
+        </a>
+      </ng-container>
     </div>
-  </footer>
-</article>
+
+    <!-- categories -->
+    <div class="mt-4">
+      <ng-container *ngIf="project.category">
+        <span class="text-gray-800 mr-1 text-sm">Category:</span>
+        <span
+          class="cursor-pointer inline-block bg-gray-200 rounded-md text-gray-800 px-2 py-1 text-sm font-medium mr-2 mb-2"
+          >{{ project.category.name }}</span
+        >
+      </ng-container>
+    </div>
+    <!-- tags -->
+    <div class="mt-2">
+      <ng-container *ngIf="project.tags">
+        <ng-container *ngIf="project.tags.length > 0">
+          <span class="text-gray-800 mr-1 text-sm">Tags:</span>
+        </ng-container>
+        <span
+          *ngFor="let tag of project.tags"
+          class="cursor-pointer inline-block bg-gray-200 rounded-md text-gray-800 px-2 py-1 text-sm font-medium mr-2 mb-2"
+        >
+          {{ tag.name }}
+        </span>
+      </ng-container>
+    </div>
+  </article>
+</div>

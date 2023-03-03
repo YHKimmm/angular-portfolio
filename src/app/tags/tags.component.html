@@ -3,6 +3,8 @@
     <h3
       class="text-base font-bold mb-2 cursor-pointer"
       (click)="setTagFilter(tag)"
+      routerLink="/projects/tags/{{ tag.slug }}"
+      routerLinkActive="text-blue-500"
     >
       {{ tag.name }}
     </h3>

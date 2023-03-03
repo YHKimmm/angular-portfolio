@@ -1,45 +1,38 @@
 <header class="p-4">
-  <h1 class="text-3xl font-bold">{{ title }}</h1>
+  <h1 class="py-4 text-gray-700 text-3xl">
+    <span class="text-[#5651e5]">{{ title }}</span>
+  </h1>
+  <nav class="cursor-pointer py-4">
+    <span routerLink="/" class="mr-2 text-gray-600 font-bold text-xl"
+      >Home</span
+    >
+    |
+    <span routerLink="/projects" class="ml-2 text-gray-600 font-bold text-xl"
+      >Projects</span
+    >
+  </nav>
   <hr class="my-4 border-gray-300" />
 </header>
 
 <main class="md:flex min-h-screen">
   <!-- Display Entire list of categories and tags -->
   <div class="md:w-4/5">
-    <app-projects
-      [categoryFilter]="categoryFilter"
-      (newCategoryFilterEvent)="setCategoryFilter($event)"
-      [tagFilter]="tagFilter"
-      (newTagFilterEvent)="setTagFilter($event)"
-    ></app-projects>
+    <router-outlet></router-outlet>
   </div>
 
   <!-- Sid Bar -->
   <div class="md:w-1/5">
-    <!-- clear function / trash bin-->
-    <section class="px-4 py-5">
-      <article *ngIf="categoryFilter || tagFilter">
-        <button
-          (click)="clearFilters()"
-          class="rounded-l text-gray-800 px-3 py-2 flex items-center"
+    <!-- all -->
+    <section class="p-4">
+      <div class="bg-gray-100 rounded-lg shadow-md p-4">
+        <h3
+          class="text-base font-bold mb-2 cursor-pointer"
+          routerLink="/projects"
+          routerLinkActive="text-purple-500"
         >
-          <span class="material-symbols-outlined text-4xl text-red-500">
-            delete
-          </span>
-        </button>
-
-        <!-- Filter names -->
-        <section>
-          <div *ngIf="categoryFilter" class="ml-2 font-bold text-red-500">
-            Category:
-            {{ categoryFilter.name }}
-          </div>
-          <div *ngIf="tagFilter" class="ml-2 font-bold text-red-500">
-            Tag:
-            {{ tagFilter.name }}
-          </div>
-        </section>
-      </article>
+          Select All
+        </h3>
+      </div>
     </section>
 
     <!-- categories -->

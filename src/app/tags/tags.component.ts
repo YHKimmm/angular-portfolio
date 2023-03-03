@@ -11,6 +11,8 @@ export class TagsComponent {
   constructor(private tagService: TagService) {}
 
   tags: Tag[] = [];
+  tagFilterId: number | undefined;
+
   getTags(): void {
     this.tags = this.tagService.getTags();
   }
@@ -26,9 +28,5 @@ export class TagsComponent {
     this.tagFilter = tag;
     this.newTagFilterEvent.emit(tag);
     console.log(this.tagFilter);
-  }
-
-  clearFilters() {
-    this.tagFilter = undefined;
   }
 }
