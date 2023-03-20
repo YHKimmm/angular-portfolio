@@ -9,6 +9,7 @@ import { ProjectFilterPipe } from './project-filter.pipe';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './home/home.component';
     TagsComponent,
     ProjectDetailComponent,
     HomeComponent,
+    AboutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
