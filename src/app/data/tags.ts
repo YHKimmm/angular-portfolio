@@ -3,8 +3,8 @@ import { Tag } from '../model/tag';
 export const TAGS: Tag[] = [
   {
     id: 1,
-    slug: 'react',
-    name: 'React',
+    slug: 'react.js',
+    name: 'React.js',
   },
   {
     id: 2,
@@ -18,8 +18,8 @@ export const TAGS: Tag[] = [
   },
   {
     id: 4,
-    slug: 'devops',
-    name: 'Devops',
+    slug: 'next.js',
+    name: 'Next.js',
   },
   {
     id: 5,

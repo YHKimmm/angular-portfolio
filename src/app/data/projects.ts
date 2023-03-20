@@ -2,65 +2,7 @@ import { Project } from '../model/project';
 
 export const PROJECTS: Project[] = [
   {
-    id: 7,
-    title: 'Android App',
-    slug: 'android-app',
-    excerpt:
-      'Et voluptatibus omnis est similique sequi reiciendis commodi est. Magnam et quia atque blanditiis doloremque.',
-    body: '<p>Et sapiente sed eius est maiores est. Nobis architecto itaque saepe sint distinctio. Eos fuga in alias provident harum. Aliquam aliquam autem et repellat tempora.</p></p>Consectetur ut accusantium architecto eligendi doloribus eveniet voluptatibus. Facilis quod illo tempore suscipit. Error eius velit voluptas et repudiandae est consequatur.</p></p>Totam quis quo cum quibusdam officia blanditiis. Sint officiis eos quia voluptatem eos magnam. Id ratione fugit ea quam.</p>',
-    url: null,
-    published_date: null,
-    image: null,
-    thumb: null,
-    category_id: null,
-    created_at: '2023-02-23T18:23:08.000000Z',
-    updated_at: '2023-02-23T18:23:08.000000Z',
-    category: null,
-    tags: [],
-  },
-  {
-    id: 8,
-    title: 'Industry Project',
-    slug: 'industry-project',
-    excerpt:
-      'Aut dolores aut blanditiis nam. Tempora explicabo eius amet temporibus.',
-    body: '<p>Dolor explicabo molestiae quam iste debitis magnam voluptatem tempore. Ab consequatur alias ut fugiat. Pariatur laudantium possimus fugiat eos voluptas ipsa nisi explicabo.</p></p>Repellat rem architecto corrupti est. Et molestiae iste molestiae nulla dicta. Adipisci alias enim eum qui saepe tempore. Dolorem quo doloremque quo corrupti numquam. Cumque ut nesciunt vel id.</p></p>Qui ut numquam maiores nobis. Aut saepe voluptatibus omnis id. Sint velit quis incidunt non voluptatem. Dolorem sed quis et nobis asperiores fugiat.</p></p>Consequatur ab atque repellendus aut aut odit. Id omnis doloribus repellendus consequatur quis eligendi eius. Illum molestias similique tempora nulla eius laborum.</p></p>Totam voluptatem eos dolorum iste. Libero sunt inventore ex aspernatur dolore aliquid iure. Omnis esse aut reiciendis adipisci. Voluptatum enim voluptatibus sequi.</p></p>Accusantium recusandae commodi qui dolorem repellendus eos ut et. Ea nobis ut esse iure. Velit aliquam quidem tempora occaecati ut. Sunt quia dolores ab esse beatae. Dolore tempora cumque aspernatur aliquam.</p>',
-    url: null,
-    published_date: null,
-    image: null,
-    thumb: null,
-    category_id: 3,
-    created_at: '2023-02-23T18:23:08.000000Z',
-    updated_at: '2023-02-23T18:23:08.000000Z',
-    category: {
-      id: 3,
-      slug: 'full-stack',
-      name: 'Full Stack',
-    },
-    tags: [],
-  },
-  {
-    id: 9,
-    title: 'Fake Project',
-    slug: 'fake-project',
-    excerpt: 'Fake Project',
-    body: 'Quaerat veritatis aut dolores ratione ad. Voluptatem architecto et nisi voluptate.',
-    url: null,
-    published_date: '2023-02-23',
-    image: null,
-    thumb: null,
-    category_id: 1,
-    created_at: '2023-02-23T18:24:37.000000Z',
-    updated_at: '2023-02-23T18:24:37.000000Z',
-    category: {
-      id: 1,
-      slug: 'back-end',
-      name: 'Back End',
-    },
-    tags: [],
-  },
-  {
-    id: 13,
+    id: 1,
     title: 'Apple Market',
     slug: 'apple-market',
     excerpt:
@@ -81,8 +23,8 @@ export const PROJECTS: Project[] = [
     tags: [
       {
         id: 1,
-        slug: 'react',
-        name: 'React',
+        slug: 'react.js',
+        name: 'React.js',
       },
       {
         id: 2,
@@ -92,7 +34,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: 14,
+    id: 2,
     title: 'Workout Budy',
     slug: 'workout-budy',
     excerpt:
@@ -113,8 +55,8 @@ export const PROJECTS: Project[] = [
     tags: [
       {
         id: 1,
-        slug: 'react',
-        name: 'React',
+        slug: 'react.js',
+        name: 'React.js',
       },
       {
         id: 2,
@@ -124,7 +66,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: 15,
+    id: 3,
     title: 'Movie App',
     slug: 'movie-app',
     excerpt:
@@ -145,13 +87,13 @@ export const PROJECTS: Project[] = [
     tags: [
       {
         id: 1,
-        slug: 'react',
-        name: 'React',
+        slug: 'react.js',
+        name: 'React.js',
       },
     ],
   },
   {
-    id: 16,
+    id: 4,
     title: 'Bank Account Management',
     slug: 'bank-account-management',
     excerpt:
@@ -174,6 +116,61 @@ export const PROJECTS: Project[] = [
         id: 5,
         slug: 'aspnet',
         name: 'ASP.NET',
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: 'Tech Quest',
+    slug: 'tech-quest',
+    excerpt:
+      'This is a full-stack web application that offers diverse interview questions with various question types for users to practice technical interview techniques and prepare for their upcoming interviews.',
+    body: 'This is a full-stack web application that offers diverse interview questions with various question types for users to practice technical interview techniques and prepare for their upcoming interviews.  The application is built using the MERN stack (MongoDB, Express, React, Node.js) and uses Redux for state management. The application is deployed on Vercel and uses Next.js with Typescript. The application is designed to be a one-stop shop for technical interview preparation.',
+    url: 'https://techquest-rk1h476hj-devofhockey.vercel.app/',
+    published_date: '2023-03-10',
+    image: 'images/tech-quest-app.png',
+    thumb: 'images/tech-quest-app.png',
+    category_id: 3,
+    created_at: '2023-02-24T01:10:41.000000Z',
+    updated_at: '2023-02-24T01:26:20.000000Z',
+    category: {
+      id: 3,
+      slug: 'full-stack',
+      name: 'Full Stack',
+    },
+    tags: [
+      {
+        id: 4,
+        slug: 'next.js',
+        name: 'Next.js',
+      },
+    ],
+  },
+  // Developed and designed a football manager app for avid football fans to manage their own league, team, player, and position using React, AWS services, and CocroachDB
+  {
+    id: 6,
+    title: 'Football Manager',
+    slug: 'football-manager',
+    excerpt:
+      'This is a full-stack web application using aws services and react. It is a comprehensive solution for managing football teams. It allows users to create an account with a choice of different football teams.',
+    body: 'This is a full-stack web application using aws services and react. It is a comprehensive solution for managing football teams. It allows users to create an account with a choice of different football teams. The application also allows them to edit, delete, and view their football teams with allow user to set a captain for the team. The database is managed using CocroachDB, and this CRUD-based application offers robust and scalable functionality for managing football teams.',
+    url: 'https://master.d13w4989r7v7a9.amplifyapp.com/',
+    published_date: '2023-03-19',
+    image: 'images/football-manager-app.png',
+    thumb: 'images/football-manager-app.png',
+    category_id: 3,
+    created_at: '2023-02-24T01:10:41.000000Z',
+    updated_at: '2023-02-24T01:26:20.000000Z',
+    category: {
+      id: 3,
+      slug: 'full-stack',
+      name: 'Full Stack',
+    },
+    tags: [
+      {
+        id: 1,
+        slug: 'react.js',
+        name: 'React.js',
       },
     ],
   },
